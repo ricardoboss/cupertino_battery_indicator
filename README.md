@@ -2,7 +2,7 @@ This package provides a single widget: `BatteryIndicator`.
 It resembles the battery icon used in the macOS menu bar, but is very customizable.
 You can provide any value it should display.
 
-![A gif showing the indicator and a slider being moved between 0% and 100%](./docs/example-slider.gif)
+![A gif showing the indicator and a slider being moved between 0% and 100%](doc/example-slider.gif)
 
 ## Features
 
