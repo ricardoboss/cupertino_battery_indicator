@@ -8,7 +8,6 @@ You can provide any value it should display.
 
 * Looks like a stylized battery laying on its side
 * Shows any percentage given to it
-* Optionally show the percentage as text next to the icon
 * Customizable colors and sizes
 
 ## Getting started
