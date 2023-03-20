@@ -21,9 +21,6 @@ import 'package:cupertino_battery_indicator/cupertino_battery_indicator.dart';
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
-
 ```dart
 Widget buildIndicator(value) =>
   Row(
