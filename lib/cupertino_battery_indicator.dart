@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -67,6 +69,15 @@ class BatteryIndicator extends StatelessWidget {
   /// a classic AA battery.
   final bool withKnob;
 
+  /// An optional widget to display in the middle of the battery indicator.
+  final Widget? icon;
+
+  /// The color of the [icon] outline. Defaults to [Colors.white].
+  final Color? iconOutline;
+
+  /// The size of the outline around [icon]. Defaults to 0.0.
+  final double? iconOutlineBlur;
+
   const BatteryIndicator({
     super.key,
     required this.value,
@@ -79,6 +90,9 @@ class BatteryIndicator extends StatelessWidget {
     this.barColor,
     this.barBorderRadius,
     this.withKnob = true,
+    this.icon,
+    this.iconOutline,
+    this.iconOutlineBlur,
   })  : assert(trackHeight / 2 > trackPadding,
             "Track height cannot be smaller than twice the padding."),
         assert(trackPadding >= 0, "Padding must be 0 or greater"),
@@ -129,6 +143,49 @@ class BatteryIndicator extends StatelessWidget {
     final borderColor = _getCurrentBorderColor(context);
     final width = trackHeight * trackAspectRatio;
 
+    final bar = _buildBar(context, width);
+
+    final children = [bar];
+
+    final icon = this.icon;
+    if (icon != null) {
+      final outlineColor = iconOutline ?? Colors.white;
+      final outlineSize = iconOutlineBlur ?? 0.0;
+
+      children.add(
+        Center(
+          child: IconTheme(
+            data: IconThemeData(
+              color: trackColor,
+              shadows: <Shadow>[
+                Shadow(
+                  color: outlineColor,
+                  blurRadius: outlineSize,
+                  offset: const Offset(1, 1),
+                ),
+                Shadow(
+                  color: outlineColor,
+                  blurRadius: outlineSize,
+                  offset: const Offset(-1, -1),
+                ),
+                Shadow(
+                  color: outlineColor,
+                  blurRadius: outlineSize,
+                  offset: const Offset(-1, 1),
+                ),
+                Shadow(
+                  color: outlineColor,
+                  blurRadius: outlineSize,
+                  offset: const Offset(1, -1),
+                )
+              ],
+            ),
+            child: icon,
+          ),
+        ),
+      );
+    }
+
     return Container(
       height: trackHeight,
       width: width,
@@ -139,11 +196,7 @@ class BatteryIndicator extends StatelessWidget {
       ),
       child: Padding(
         padding: EdgeInsets.all(trackPadding),
-        child: Stack(
-          children: [
-            _buildBar(context, width),
-          ],
-        ),
+        child: Stack(children: children),
       ),
     );
   }
