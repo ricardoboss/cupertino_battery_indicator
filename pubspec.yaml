@@ -1,6 +1,6 @@
 name: cupertino_battery_indicator
 description: A simple widget to display battery charge inspired by the Cupertino design.
-version: 1.0.0
+version: 1.1.0
 
 homepage: https://github.com/ricardoboss/cupertino_battery_indicator
 repository: https://github.com/ricardoboss/cupertino_battery_indicator
