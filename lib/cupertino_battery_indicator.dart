@@ -25,7 +25,7 @@ class BatteryIndicator extends StatelessWidget {
   /// The default aspect ratio (width divided by height) of the indicator.
   static const defaultAspectRatio = 2.33;
 
-  /// The value to show for this indicator. Should be a value between 0 and 1
+  /// The value to show for this indicator. MUST be a value between 0 and 1
   /// (inclusive).
   final double value;
 
@@ -91,7 +91,8 @@ class BatteryIndicator extends StatelessWidget {
     this.icon,
     this.iconOutline,
     this.iconOutlineBlur,
-  })  : assert(trackHeight / 2 > trackPadding,
+  })  : assert(value >= 0 && value <= 1, "The value must be in the range [0, 1]"),
+        assert(trackHeight / 2 > trackPadding,
             "Track height cannot be smaller than twice the padding."),
         assert(trackPadding >= 0, "Padding must be 0 or greater"),
         assert(trackAspectRatio >= 1,

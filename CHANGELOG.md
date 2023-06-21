@@ -1,3 +1,7 @@
+## 1.2.0
+
+* Added assertion on the `value` parameter to be within the range 0 - 1 (inclusive)
+
 ## 1.1.0
 
 * Added `icon` property which displays a centered icon above the track
