@@ -5,6 +5,9 @@ on:
 
 jobs:
   update_goldens:
+    permissions:
+      contents: write
+
     runs-on: ${{ matrix.os }}
 
     strategy:
