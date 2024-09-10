@@ -1,0 +1,38 @@
+name: Dart
+
+on:
+  workflow_dispatch:
+
+jobs:
+  update_goldens:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: flutter-actions/setup-flutter@v3
+        with:
+          cache: true
+          cache-sdk: true
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Update goldens
+        run: flutter test --update-goldens
+
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Update goldens
+          file_pattern: 'test/widget/goldens/*.png'
+
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
