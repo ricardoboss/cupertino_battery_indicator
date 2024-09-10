@@ -1,10 +1,7 @@
-## 1.3.0
-
-* (internal) Added GitHub Action workflows and updated the README
-
 ## 1.2.0
 
 * Added assertion on the `value` parameter to be within the range 0 - 1 (inclusive)
+* (internal) Added GitHub Action workflows and updated the README
 
 ## 1.1.0
 
