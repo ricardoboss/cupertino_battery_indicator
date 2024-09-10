@@ -3,14 +3,15 @@ publish_to: 'none'
 version: 1.0.0+1
 
 environment:
-  sdk: '>=2.19.4 <3.0.0'
+  sdk: '>=3.5.2 <4.0.0'
+  flutter: ">=3.24.2"
 
 dependencies:
   flutter:
     sdk: flutter
 
-  cupertino_icons: ^1.0.5
+  cupertino_icons: ^1.0.8
   cupertino_battery_indicator:
     path: ../
 
-flutter:
+  flutter_lints: ^4.0.0

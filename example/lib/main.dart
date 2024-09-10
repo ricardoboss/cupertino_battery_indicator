@@ -3,10 +3,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(ExampleApp());
+  runApp(const ExampleApp());
 }
 
 class ExampleApp extends StatefulWidget {
+  const ExampleApp({super.key});
+
   @override
   State<ExampleApp> createState() => _ExampleAppState();
 }
@@ -29,7 +31,10 @@ class _ExampleAppState extends State<ExampleApp> {
                   child: BatteryIndicator(
                     //trackHeight: 30.0,
                     value: _value,
-                    icon: _icon ? Icon(CupertinoIcons.question, color: Colors.black) : null,
+                    icon: _icon
+                        ? const Icon(CupertinoIcons.question,
+                            color: Colors.black)
+                        : null,
                     iconOutline: Colors.white,
                     iconOutlineBlur: 1.0,
                   ),
@@ -48,7 +53,7 @@ class _ExampleAppState extends State<ExampleApp> {
                       value: _icon,
                       onChanged: (v) => setState(() => _icon = v == true),
                     ),
-                    Text("Show Icon"),
+                    const Text("Show Icon"),
                   ],
                 ),
               ],

@@ -7,7 +7,7 @@ repository: https://github.com/ricardoboss/cupertino_battery_indicator
 
 environment:
   sdk: '>=3.0.0 <4.0.0'
-  flutter: ">=1.17.0"
+  flutter: ">=3.0.0"
 
 dependencies:
   flutter:
@@ -16,6 +16,4 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.1
-
-flutter:
+  flutter_lints: ^4.0.0
