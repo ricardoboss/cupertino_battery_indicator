@@ -61,7 +61,8 @@ Future<void> main() async {
     await screenMatchesGolden(tester, 'battery_indicator_${osName}_light');
   });
 
-  testGoldens('BatteryIndicator matches golden ($osName, dark)', (tester) async {
+  testGoldens('BatteryIndicator matches golden ($osName, dark)',
+      (tester) async {
     await tester.pumpWidgetBuilder(
       darkBuilder.build(),
       surfaceSize: const Size(100, 304),
