@@ -91,7 +91,8 @@ class BatteryIndicator extends StatelessWidget {
     this.icon,
     this.iconOutline,
     this.iconOutlineBlur,
-  })  : assert(value >= 0 && value <= 1, "The value must be in the range [0, 1]"),
+  })  : assert(
+            value >= 0 && value <= 1, "The value must be in the range [0, 1]"),
         assert(trackHeight / 2 > trackPadding,
             "Track height cannot be smaller than twice the padding."),
         assert(trackPadding >= 0, "Padding must be 0 or greater"),
