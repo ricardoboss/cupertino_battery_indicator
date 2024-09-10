@@ -28,6 +28,9 @@ jobs:
       - name: Update goldens
         run: flutter test --update-goldens
 
+      - name: Pull changes
+        run: git pull
+
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
