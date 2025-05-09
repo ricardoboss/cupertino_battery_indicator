@@ -1,74 +1,47 @@
-import 'dart:io';
-
+import 'package:alchemist/alchemist.dart';
 import 'package:cupertino_battery_indicator/cupertino_battery_indicator.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:golden_toolkit/golden_toolkit.dart';
 
 Future<void> main() async {
-  await loadAppFonts();
+  GoldenTestGroup buildScenario(Brightness brightness) => GoldenTestGroup(
+        children: [
+          GoldenTestScenario(
+            name: '0%',
+            child: _Wrapper(
+              brightness: brightness,
+              child: const BatteryIndicator(value: 0),
+            ),
+          ),
+          GoldenTestScenario(
+            name: '50%',
+            child: _Wrapper(
+              brightness: brightness,
+              child: const BatteryIndicator(value: 0.5),
+            ),
+          ),
+          GoldenTestScenario(
+            name: '100%',
+            child: _Wrapper(
+              brightness: brightness,
+              child: const BatteryIndicator(value: 1),
+            ),
+          ),
+        ],
+      );
 
-  final lightBuilder = GoldenBuilder.grid(
-    columns: 1,
-    widthToHeightRatio: 0.5,
-    wrap: (child) => _Wrapper(
-      brightness: Brightness.light,
-      child: child,
-    ),
-  )
-    ..addScenario(
-      '0%',
-      const BatteryIndicator(value: 0),
-    )
-    ..addScenario(
-      '50%',
-      const BatteryIndicator(value: 0.5),
-    )
-    ..addScenario(
-      '100%',
-      const BatteryIndicator(value: 1),
+  group('BatteryIndicator matches golden', () {
+    goldenTest(
+      'light',
+      fileName: 'light',
+      builder: () => buildScenario(Brightness.light),
     );
 
-  final darkBuilder = GoldenBuilder.grid(
-    columns: 1,
-    widthToHeightRatio: 0.5,
-    wrap: (child) => _Wrapper(
-      brightness: Brightness.dark,
-      child: child,
-    ),
-  )
-    ..addScenario(
-      '0%',
-      const BatteryIndicator(value: 0),
-    )
-    ..addScenario(
-      '50%',
-      const BatteryIndicator(value: 0.5),
-    )
-    ..addScenario(
-      '100%',
-      const BatteryIndicator(value: 1),
+    goldenTest(
+      'dark',
+      fileName: 'dark',
+      builder: () => buildScenario(Brightness.dark),
     );
-
-  final osName = Platform.operatingSystem;
-
-  testGoldens('BatteryIndicator matches golden ($osName)', (tester) async {
-    await tester.pumpWidgetBuilder(
-      lightBuilder.build(),
-      surfaceSize: const Size(100, 304),
-    );
-
-    await screenMatchesGolden(tester, 'battery_indicator_${osName}_light');
-  });
-
-  testGoldens('BatteryIndicator matches golden ($osName, dark)',
-      (tester) async {
-    await tester.pumpWidgetBuilder(
-      darkBuilder.build(),
-      surfaceSize: const Size(100, 304),
-    );
-
-    await screenMatchesGolden(tester, 'battery_indicator_${osName}_dark');
   });
 }
 
