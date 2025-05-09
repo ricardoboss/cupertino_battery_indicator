@@ -1,8 +1,8 @@
 ![GitHub License](https://img.shields.io/github/license/ricardoboss/cupertino_battery_indicator)
-![Pub Version](https://img.shields.io/pub/v/cupertino_battery_indicator)
-![Pub Points](https://img.shields.io/pub/points/cupertino_battery_indicator)
-![Pub Likes](https://img.shields.io/pub/likes/cupertino_battery_indicator)
-![Pub Popularity](https://img.shields.io/pub/popularity/cupertino_battery_indicator)
+[![Pub Version](https://img.shields.io/pub/v/cupertino_battery_indicator)](https://pub.dev/packages/cupertino_battery_indicator)
+[![Pub Points](https://img.shields.io/pub/points/cupertino_battery_indicator)](https://pub.dev/packages/cupertino_battery_indicator)
+[![Pub Likes](https://img.shields.io/pub/likes/cupertino_battery_indicator)](https://pub.dev/packages/cupertino_battery_indicator)
+[![Pub Monthly Downloads](https://img.shields.io/pub/dm/cupertino_battery_indicator)](https://pub.dev/packages/cupertino_battery_indicator)
 [![Pipeline](https://github.com/ricardoboss/cupertino_battery_indicator/actions/workflows/dart.yml/badge.svg)](https://github.com/ricardoboss/cupertino_battery_indicator/actions/workflows/dart.yml)
 
 This package provides a single widget: `BatteryIndicator`.
