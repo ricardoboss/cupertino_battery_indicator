@@ -31,11 +31,9 @@ import 'package:cupertino_battery_indicator/cupertino_battery_indicator.dart';
 Widget buildIndicator(value) =>
   Row(
     mainAxisSize: MainAxisSize.min,
+    spacing: 16,
     children: [
-      Padding(
-        padding: const EdgeInsets.only(right: 16.0),
-        child: BatteryIndicator(value: value),
-      ),
+      BatteryIndicator(value: value),
       Text('${(value * 100).ceil()}%'),
     ],
   );
