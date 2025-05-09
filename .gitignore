@@ -29,3 +29,4 @@ migrate_working_dir/
 .packages
 build/
 doc/api/
+/android/local.properties
