@@ -1,3 +1,8 @@
+## 1.2.1
+
+* Updated dependencies and README
+* Fixed deprecated method call
+
 ## 1.2.0
 
 * Added assertion on the `value` parameter to be within the range 0 - 1 (inclusive)
