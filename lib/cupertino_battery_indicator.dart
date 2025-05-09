@@ -206,7 +206,7 @@ class BatteryIndicator extends StatelessWidget {
         (CupertinoTheme.brightnessOf(context) == Brightness.light
                 ? Colors.black
                 : Colors.white)
-            .withOpacity(0.5);
+            .withValues(alpha: 0.5);
   }
 
   Widget _buildBar(BuildContext context, double trackWidth) {
